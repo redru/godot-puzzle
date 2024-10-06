@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://chknmmqi65unx"]
+
+[ext_resource type="PackedScene" uid="uid://dtsepe7tp8xac" path="res://scenes/piece.tscn" id="1_snf32"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Piece" parent="." instance=ExtResource("1_snf32")]
+position = Vector2(260, -127)
+region = Rect2(0, 0, 338, 180)
+
+[node name="Piece2" parent="." instance=ExtResource("1_snf32")]
+position = Vector2(234, 189)
+region = Rect2(338, 0, 338, 180)
+
+[node name="Piece3" parent="." instance=ExtResource("1_snf32")]
+position = Vector2(-300, 169)
+region = Rect2(338, 180, 338, 180)
+
+[node name="Piece4" parent="." instance=ExtResource("1_snf32")]
+position = Vector2(-302, -118)
+region = Rect2(0, 180, 338, 180)

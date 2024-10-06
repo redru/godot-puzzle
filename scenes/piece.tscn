@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtsepe7tp8xac"]
+
+[ext_resource type="Script" path="res://scripts/piece.gd" id="1_ma00y"]
+[ext_resource type="Texture2D" uid="uid://bpm7m8ia3hirv" path="res://assets/puzzle_1.jpg" id="2_8ckaf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dfjj"]
+size = Vector2(9.99601, 9.97783)
+
+[node name="Piece" type="Node2D"]
+script = ExtResource("1_ma00y")
+texture = ExtResource("2_8ckaf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+region_enabled = true
+region_rect = Rect2(0, 0, 338, 180)
+
+[node name="DraggingArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea"]
+scale = Vector2(33.8135, 18.04)
+shape = SubResource("RectangleShape2D_8dfjj")
+
+[connection signal="input_event" from="DraggingArea" to="." method="_on_dragging_area_input_event"]
