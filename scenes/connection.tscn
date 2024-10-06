@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqpkaxuoqgdb4"]
+[gd_scene load_steps=3 format=3 uid="uid://bqpkaxuoqgdb4"]
+
+[ext_resource type="Script" path="res://scripts/connection.gd" id="1_3aijx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0pymn"]
 
-[node name="Connection" type="Node2D"]
+[node name="Connection" type="Node2D" groups=["connections"]]
+script = ExtResource("1_3aijx")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_0pymn")

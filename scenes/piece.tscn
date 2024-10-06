@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dfjj"]
 size = Vector2(9.99601, 9.97783)
 
-[node name="Piece" type="Node2D"]
+[node name="Piece" type="Node2D" groups=["pieces"]]
 script = ExtResource("1_ma00y")
 texture = ExtResource("2_8ckaf")
 

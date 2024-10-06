@@ -1,23 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://chknmmqi65unx"]
+[gd_scene load_steps=5 format=3 uid="uid://chknmmqi65unx"]
 
 [ext_resource type="PackedScene" uid="uid://dtsepe7tp8xac" path="res://scenes/piece.tscn" id="1_snf32"]
+[ext_resource type="PackedScene" uid="uid://cr1asop0xwktu" path="res://scenes/puzzle_manager.tscn" id="1_u5vhq"]
+[ext_resource type="PackedScene" uid="uid://bqpkaxuoqgdb4" path="res://scenes/connection.tscn" id="2_bpcxq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3p3so"]
+line_spacing = 0.0
 
 [node name="Main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.97737, 0.974539)
 
-[node name="Piece" parent="." instance=ExtResource("1_snf32")]
+[node name="PuzzleManager" parent="." instance=ExtResource("1_u5vhq")]
+
+[node name="Piece" parent="PuzzleManager" instance=ExtResource("1_snf32")]
 position = Vector2(260, -127)
 region = Rect2(0, 0, 338, 180)
 
-[node name="Piece2" parent="." instance=ExtResource("1_snf32")]
+[node name="Connection_1" parent="PuzzleManager/Piece" instance=ExtResource("2_bpcxq")]
+position = Vector2(169, 0)
+join_id = 1
+
+[node name="Connection_4" parent="PuzzleManager/Piece" instance=ExtResource("2_bpcxq")]
+position = Vector2(0, 90)
+join_id = 4
+
+[node name="Piece2" parent="PuzzleManager" instance=ExtResource("1_snf32")]
 position = Vector2(234, 189)
 region = Rect2(338, 0, 338, 180)
 
-[node name="Piece3" parent="." instance=ExtResource("1_snf32")]
+[node name="Connection_1" parent="PuzzleManager/Piece2" instance=ExtResource("2_bpcxq")]
+position = Vector2(-169, 0)
+join_id = 1
+
+[node name="Connection_2" parent="PuzzleManager/Piece2" instance=ExtResource("2_bpcxq")]
+position = Vector2(0, 90)
+join_id = 2
+
+[node name="Piece3" parent="PuzzleManager" instance=ExtResource("1_snf32")]
 position = Vector2(-300, 169)
 region = Rect2(338, 180, 338, 180)
 
-[node name="Piece4" parent="." instance=ExtResource("1_snf32")]
+[node name="Connection_2" parent="PuzzleManager/Piece3" instance=ExtResource("2_bpcxq")]
+position = Vector2(0, -90)
+join_id = 2
+
+[node name="Connection_3" parent="PuzzleManager/Piece3" instance=ExtResource("2_bpcxq")]
+position = Vector2(-169, 0)
+join_id = 3
+
+[node name="Piece4" parent="PuzzleManager" instance=ExtResource("1_snf32")]
 position = Vector2(-302, -118)
 region = Rect2(0, 180, 338, 180)
+
+[node name="Connection_3" parent="PuzzleManager/Piece4" instance=ExtResource("2_bpcxq")]
+position = Vector2(169, 0)
+join_id = 3
+
+[node name="Connection_4" parent="PuzzleManager/Piece4" instance=ExtResource("2_bpcxq")]
+position = Vector2(0, -90)
+join_id = 4
+
+[node name="Label" type="Label" parent="."]
+offset_left = -553.192
+offset_top = -304.056
+offset_right = -492.192
+offset_bottom = -281.056
+scale = Vector2(2.20915, 2.07047)
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_3p3so")
+horizontal_alignment = 1
+vertical_alignment = 1
